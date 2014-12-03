@@ -1,15 +1,14 @@
 <h2>All Tools</h2>
-<table>
-  <thead>
-  </thead>
+<table class = "table table-responsive">
+  <!-- <thead>
+  </thead> -->
   <tbody>
-    <td>
     <% @tools.each do |tool| %>
           <tr>
-            <td><%= tool.type %></td>
-            <td><%= tool.status %></td>    
+            <td><%= tool.name %></td>
+            <td><%= tool.quantity %></td>
+            <td><%= tool.in_stock %></td>
           </tr>
     <% end %>
-    </td>
   </tbody>
 </table>
