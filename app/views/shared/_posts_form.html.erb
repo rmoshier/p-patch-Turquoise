@@ -1,0 +1,14 @@
+<%= form_for @post, url {action: obj} do |f| %>
+  <%= f.label :title, "Title:" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :author, "Author:" %>
+  <%= f.text_field :author %>
+
+  <%= f.label :content, "Content:" %>
+  <%= f.text_field :content %>
+
+  <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
+
+  <%= f.submit %>
+<% end %>
