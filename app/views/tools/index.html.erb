@@ -1,15 +1,15 @@
 <h2>All Tools</h2>
-
 <table>
   <thead>
   </thead>
-  
   <tbody>
     <td>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
+    <% @tools.each do |tool| %>
+          <tr>
+            <td><%= tool.type %></td>
+            <td><%= tool.status %></td>    
+          </tr>
+    <% end %>
     </td>
   </tbody>
-
 </table>

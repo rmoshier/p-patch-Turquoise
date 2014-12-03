@@ -13,3 +13,52 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar {
+  background: pink;
+  height: 70px;
+}
+
+.navbar h1 {
+  display: inline-block;
+  margin: 0;
+}
+
+#content {
+  margin-top: 100px;
+}
+
+#footer {
+  background: lightblue;
+  height: 30px;
+}
+
+#login {
+  background: yellow;
+  display: inline-block;
+  margin: 0;
+  height: 70px;
+  /*float: right;*/
+}
+
+.float {
+  float: right;
+  padding: 0px;
+  margin: 0px;
+}
+
+#menu {
+  display: inline-block;
+  margin: 0;
+  height: 70px;
+  float: right;
+  background: lightgreen;
+  margin: 0;
+}
+
+#dropdown {
+  position: absolute;
+  /*display: none;*/
+  background: grey;
+  /*float: right;*/
+}

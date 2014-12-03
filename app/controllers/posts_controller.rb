@@ -5,15 +5,25 @@ class PostsController < ApplicationController
   end
 
   def new
-    if session[:current_user_id]
-      @post = Post.new
-    else
-      redirect_to posts_path
-    end
+    @post = Post.new
+    # if session[:current_user_id]
+    #   @post = Post.new
+    # else
+    #   redirect_to posts_path
+    # end
   end
 
   def create
-    @post = Post.new(params.requre(:post).permit(:title, :author, :content))
+    @post = Post.new(params.require(:post).permit(:title, :author, :content))
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @product.update(params.require(:post).permit(:title, :author, :content))
+      redirect_to posts_path, notice: "Product was successfully updated."
+    else
+      render :edit
+    end
   end
 
   def show
@@ -28,6 +38,11 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
   end
 
 end

@@ -10,7 +10,15 @@ Rails.application.routes.draw do
   get "/posts/new",           to: "posts#new",              as: :new_post
   post "/posts/new",          to: "posts#create"
   get "/posts/:id",           to: "posts#show",             as: :show_post
-  get "/posts/:id/edit",      to: "posts#edit",             as: :edit_post        
+  get "/posts/:id/edit",      to: "posts#edit",             as: :edit_post
+
+  # Tool routes
+
+  get "/tools",               to: "tools#index",            as: :tools
+  get "/tools/new",           to: "tools#new",              as: :new_tool
+  post "/tools/new",          to: "tools#create"
+  get "/tools/:id",           to: "tools#show",             as: :show_tool
+  get "/tools/:id/edit",      to: "tools#edit",             as: :edit_tool
 
 
 

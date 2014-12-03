@@ -1,0 +1,14 @@
+<%= form_for @tool, url {action: obj} do |f| %>
+  <%= f.label :title, "Type:" %>
+  <%= f.text_field :type %>
+
+  <%= f.label :author, "Status:" %>
+  <%= f.text_field :status %>
+
+  <%= f.label :content, "Photo URL:" %>
+  <%= f.text_field :photo_url %>
+
+  <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
+
+  <%= f.submit %>
+<% end %>
