@@ -1,12 +1,27 @@
 require 'rails_helper'
 require 'spec_helper'
 
+describe Post do
+
+  let(:post) {
+    Post.new(
+    title: 'Title',
+    author: 'Bookis',
+    content: 'anything',
+    user_id: '1234',
+    )
+  }
+
   describe ".validates" do
     it "must have a content" do
-      expect(Post.new(content: nil)).to_not be_valid
+      post.content = nil
+      expect(post).to_not be_valid
     end
 
     it "must have author" do
-      expect(Post.new(author: nil)).to_not be_valid
+      post.author = nil
+      expect(post).to_not be_valid
     end
   end
+
+end
