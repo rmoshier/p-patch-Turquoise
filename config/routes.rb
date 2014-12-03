@@ -4,9 +4,14 @@ Rails.application.routes.draw do
 
   get "/",                    to: "home#index",             as: :root
 
-  # User routes
+  # Post routes
 
-  
+  get "/posts",               to: "posts#index",            as: :posts
+  get "/posts/new",           to: "posts#new",              as: :new_post
+  post "/posts/new",          to: "posts#create"
+  get "/posts/:id",           to: "posts#show",             as: :show_post
+  get "/posts/:id/edit",      to: "posts#edit",             as: :edit_post        
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
