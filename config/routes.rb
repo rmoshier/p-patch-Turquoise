@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   # /auth/:provider triggers the auth action; user is returned to:
 
   get "/auth/:provider/callback",   to: "sessions#create",      as: :connect
-
   get "/logout",                    to: "sessions#destroy",     as: :logout
 
 
