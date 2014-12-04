@@ -7,16 +7,18 @@ class User < ActiveRecord::Base
       uid:        auth_hash["uid"].to_s,
       photo_url: auth_hash["info"]["image"],
       name:   auth_hash["info"]["name"],
+      email: "rachel@email.com",
+      password: "password!"
     )
-  rescue ActiveRecord::RecordInvalid
-    nil
   end
 
   def self.find_or_create_from_omniauth(auth_hash)
     # Find or create a user
-    user = User.find_by(uid: auth_hash["uid"].to_s) || User.create_from_omniauth(auth_hash)
-    return user
+    if user = User.find_by(uid: auth_hash["uid"].to_s)
+      return user
+    else
+      User.create_from_omniauth(auth_hash)
+    end
   end
-
 
 end
