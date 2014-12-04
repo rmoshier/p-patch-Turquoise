@@ -16,7 +16,8 @@ class ToolsController < ApplicationController
   end
 
   def create
-    @tool = Tool.new(params.require(:post).permit(:name, :quantity, :in_stock, :photo_url))
+    @tool = Tool.new(params.require(:post).permit(:name, :quantity, :photo_url))
+    @tool.in_stock = @tool.quantity
     if @tool.save
       redirect_to tools_path
     else
