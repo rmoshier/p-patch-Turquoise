@@ -1,13 +1,33 @@
 <h2>All Tools</h2>
 <table class = "table table-responsive">
-  <!-- <thead>
-  </thead> -->
+  <thead>
+  </thead>
   <tbody>
     <% @tools.each do |tool| %>
           <tr>
+            <td><%= tool.id %></td>
             <td><%= tool.name %></td>
             <td><%= tool.quantity %></td>
             <td><%= tool.in_stock %></td>
+            <% if tool.in_stock > 0 %>
+              <td>
+                <%= link_to "Rent", "/tools/rent/#{tool.id}" %>
+              </td>
+            <% end %>
+
+
+            <td>
+              <%= link_to "Return", "/tools/return/#{tool.id}" %>
+            </td>
+
+
+            <% @userstools.each do |userstool| %>
+              <% if userstool.tool_id == tool.id && userstool.user_id == session[:current_user_id] %>
+                    <td>
+                      <%= button_to "Return", return_tool_path(tool_id: tool.id, user_id: session[:current_user_id]), class: "checkout_button ui mini red", method: :post %>
+                    </td>
+              <% end %>
+            <% end %>
           </tr>
     <% end %>
   </tbody>

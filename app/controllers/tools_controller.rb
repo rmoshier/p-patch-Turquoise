@@ -1,6 +1,9 @@
 class ToolsController < ApplicationController
   def index
     @tools = Tool.all
+    @userstools = Userstool.all
+    @user = User.find(session[current_user_id])
+
   end
 
   def show
@@ -34,7 +37,28 @@ class ToolsController < ApplicationController
     end
   end
 
-  def destroy
+  def lost_tool
+    @tool = Tool.find(params[:id])
+    @tool.quantity -= 1
+  end
+
+  def rent_tool
+    @tool = Tool.find(params[:id])
+    @tool.in_stock -= 1
+    @tool.save
+    @userstool = Userstool.new
+    @userstool.user_id = session[:current_user_id]
+    @userstool.tool_id = params[:id]
+    redirect_to tools_path
+  end
+
+  def return_tool
+    @userstool = Userstool.find_by(user_id: session[:current_user_id], tool_id: params[:id])
+    @tool = find(params[:id])
+    @userstool.destroy
+    @tool.in_stock += 1
+    @tool.save
+    redirect_to tools_path
   end
 
 end
