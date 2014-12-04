@@ -20,6 +20,12 @@ Rails.application.routes.draw do
   get "/tools/:id",           to: "tools#show",             as: :show_tool
   get "/tools/:id/edit",      to: "tools#edit",             as: :edit_tool
 
+  # OAuth routes
+  # /auth/:provider triggers the auth action; user is returned to:
+
+  get "/auth/:provider/callback",   to: "sessions#create",      as: :connect
+  post "/auth/:provider/callback",  to: "sessions#create"
+  get "/logout",                    to: "sessions#destroy",     as: :logout
 
 
   # The priority is based upon order of creation: first created -> highest priority.
