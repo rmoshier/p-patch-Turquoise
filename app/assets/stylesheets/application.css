@@ -33,7 +33,7 @@
   height: 30px;
 }
 
-#login {
+#login, #logout {
   background: yellow;
   display: inline-block;
   margin: 0;
@@ -62,6 +62,8 @@
   /*display: none;*/
   background: grey;
   /*float: right;*/
+  /*margin-right: -100px;*/
+  display: none;
 }
 
 #weather {
