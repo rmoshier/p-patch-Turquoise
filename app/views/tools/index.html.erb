@@ -5,29 +5,21 @@
   <tbody>
     <% @tools.each do |tool| %>
           <tr>
-            <td><%= tool.id %></td>
-            <td><%= tool.name %></td>
-            <td><%= tool.quantity %></td>
-            <td><%= tool.in_stock %></td>
-            <% if tool.in_stock > 0 %>
-              <td>
-                <%= link_to "Rent", "/tools/rent/#{tool.id}" %>
-              </td>
-            <% end %>
-
-
-            <td>
-              <%= link_to "Return", "/tools/return/#{tool.id}" %>
+            <td class = ".col-md-2 text-center"><%= tool.id %></td>
+            <td class = ".col-md-2 text-center"><%= tool.name %></td>
+            <td class = ".col-md-2 text-center"><%= tool.quantity %></td>
+            <td class = ".col-md-2 text-center"><%= tool.in_stock %></td>
+            <td class = ".col-md-2 text-center">
+              <% if tool.in_stock > 0 && session[:user_id] %>
+                  <%= link_to "Rent", "/tools/rent/#{tool.id}" %>
+              <% end %>
             </td>
 
-
-            <% @userstools.each do |userstool| %>
-              <% if userstool.tool_id == tool.id && userstool.user_id == session[:current_user_id] %>
-                    <td>
-                      <%= button_to "Return", return_tool_path(tool_id: tool.id, user_id: session[:current_user_id]), class: "checkout_button ui mini red", method: :post %>
-                    </td>
+            <td class = ".col-md-2 text-center">
+              <% if Userstool.find_by(user_id: @user.id, tool_id: tool.id) %>
+                  <%= link_to "Return", "/tools/return/#{tool.id}" %>
               <% end %>
-            <% end %>
+            </td>
           </tr>
     <% end %>
   </tbody>
