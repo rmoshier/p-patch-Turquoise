@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # if session[:current_user_id]
+    # if session[:user_id]
     #   @post = Post.new
     # else
     #   redirect_to posts_path
