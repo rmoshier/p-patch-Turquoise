@@ -1,7 +1,9 @@
-<div id = "user-div" class = "container-fluid">
-  <h2 class = "text-center">Welcome back <%= @user.name %>!</h2>
-</div>
 
+<% if session[:current_user_id] %>
+  <div id = "user-div" class = "container-fluid">
+    <h2 class = "text-center">Welcome back <%= @user.name %>!</h2>
+  </div>
+<% end %>
 <div id = "weather" class = "container-fluid">
   <h2 class = "text-center">I'm weather!</h2>
 </div>
