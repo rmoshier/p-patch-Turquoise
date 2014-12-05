@@ -5,30 +5,32 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Muli:300,400|Raleway:400,100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Anton|Changa+One|Bevan|Vidaloka' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div id = "wrap">
     <div class = "navbar navbar-fixed-top">
-      <h1>P-Patch</h1>
+      <h1 class = "vida">P-Patch</h1>
 
         <div class = "float">
           <% if session[:user_id] %>
             <div id = "logout">
-              <h2><%= link_to "Logout", logout_path %></h2>
+              <h2 class = "green"><%= link_to "Logout", logout_path, :class => "log" %></h2>
             </div>
           <% else %>
             <div id = "login">
-              <h2><%= link_to "Login", "auth/twitter" %></h2>
+              <h2 class = "green"><%= link_to "Login", "auth/twitter", :class => "log"  %></h2>
             </div>
           <% end %>
           <div id = "menu">
             <h2>Menu</h2>
           </div>
           <div id = "dropdown">
-            <h3><%= link_to "Home", "/" %></h3>
-            <h3><%= link_to "Blog", "/posts/" %></h3>
-            <h3><%= link_to "Tools", "/tools" %></h3>
-            <h3>Calendar</h3>
+            <h4><%= link_to "Home", "/" %></h4>
+            <h4><%= link_to "Blog", "/posts/" %></h4>
+            <h4><%= link_to "Tools", "/tools" %></h4>
+            <h4><%= link_to "Calendar", "/tools" %></h4>
           </div>
         </div>
     </div>

@@ -14,8 +14,13 @@
  *= require_self
  */
 
+ body {
+   font-family: 'Raleway', sans-serif;
+   font-weight: 100;
+ }
+
 .navbar {
-  background: pink;
+  background: #99D12A;
   height: 70px;
 }
 
@@ -25,7 +30,7 @@
 }
 
 #content {
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 #footer {
@@ -33,13 +38,43 @@
   height: 30px;
 }
 
-#login {
-  background: yellow;
+.show-image {
+  width: 100px;
+  height: 100px;
+}
+
+
+
+#login, #logout {
+  width: 110px;
+  background: white;
+  /*background: #F2F2F2;*/
   display: inline-block;
   margin: 0;
   height: 70px;
   /*float: right;*/
+  position: relative;
+  z-index: 6;
+  padding-left: 3px;
+  padding-right: 3px;
 }
+
+#login, #logout h2 {
+  /*color: white;*/
+  text-decoration: none;
+  text-align: center;
+}
+
+.log {
+  color: #99D12A;
+  text-decoration: none;
+}
+
+.log:hover {
+  color: lightgrey;
+  text-decoration: none;
+}
+
 
 .float {
   float: right;
@@ -48,20 +83,85 @@
 }
 
 #menu {
+  width: 100px;
   display: inline-block;
   margin: 0;
   height: 70px;
   float: right;
-  background: lightgreen;
-  margin: 0;
+  background: silver;
+  background: white;
+  color: #99D12A;
+  position: relative;
+  z-index: 5;
+  padding-left: 3px;
+  padding-right: 3px;
+  text-align: center;
+  margin-left: 2px;
 }
 
+#user-div {
+  /*background: #B5DB67;*/
+  /*background: #99D12A;*/
+  background: dimgrey;
+  color: white;
+  padding: 0;
+}
+
+.white {
+  color: white;
+}
+.green {
+  color: #99D12A;
+}
+
+.tools {
+  background: grey;
+  height: 100%;
+}
+
+.fill {
+  height: 100%;
+}
 #dropdown {
-  margin-top:-20px;
+  /*margin-top:-10px;*/
   /*position: absolute;*/
   /*display: none;*/
-  background: grey;
+  background: #99D12A;
   /*float: right;*/
+  /*margin-right: -100px;*/
+  /*display: none;*/
+  /*margin-top :-130px;*/
+  /*z-index: -1;*/
+  position: relative;
+  margin-top: -170px;
+  z-index: 1;
+  padding:2px;
+  color :white;
+  padding-left: 25px;
+}
+
+#dropdown h4 a {
+  color: white;
+}
+
+#dropdown h4 a:hover {
+  color: dimgrey;
+  text-decoration: none;
+}
+
+.open {
+
+}
+
+.vida {
+  font-family: 'Vidaloka';
+}
+
+.navbar h1 {
+  margin: 5px;
+  color: white;
+  margin-left: 30px;
+  font-size: 4em;
 }
 
 #weather {
