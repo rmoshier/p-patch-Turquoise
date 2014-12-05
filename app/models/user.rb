@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
   validates :email, :name, :password, :uid, presence: true
 
     def self.create_from_omniauth(auth_hash)
+      image = auth_hash["info"]["image"].gsub!(/normal.jpeg$/,"bigger.jpeg")
       User.create(
         uid:        auth_hash["uid"].to_s,
-        photo_url: auth_hash["info"]["image"],
+        photo_url:  image,
+        # photo_url needs to be subbing _normal.jpg to _bigger.jpg
         name:   auth_hash["info"]["name"],
         email: "rachel@email.com",
         password: "password!"
