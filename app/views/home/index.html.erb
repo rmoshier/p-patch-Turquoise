@@ -1,13 +1,12 @@
-
 <% if session[:user_id] %>
   <div id = "user-div" class = "container-fluid">
-    <h2 class = "text-center">Welcome back <%= @user.name %>!</h2>
+    <h2 class = "text-center">Welcome back <%= current_user.name %>!</h2>
+  </div>
+  <div id = "weather" class = "container-fluid">
+    <h2 class = "text-center">I'm weather!<%= current_user.name %>
+    </h2>
   </div>
 <% end %>
-<div id = "weather" class = "container-fluid">
-  <h2 class = "text-center">I'm weather!<%= @user.name %>
-  </h2>
-</div>
 
 <div id = "my-tools" class = "container-fluid">
   <h2 class = "text-center">Tools</h2>
