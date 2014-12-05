@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
     def self.create_from_omniauth(auth_hash)
         # Create a user
-        User.create!(
+        User.create(
           uid:        auth_hash["uid"].to_s,
           photo_url: auth_hash["info"]["image"],
           name:   auth_hash["info"]["name"],
