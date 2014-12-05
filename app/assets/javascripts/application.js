@@ -14,7 +14,19 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
-  $("#menu").click(function () {
-    $("#dropdown").slideToggle(600);
+  // $("#menu").click(function () {
+  //   $("#dropdown").slideToggle(600);
+  // });
+
+  $("#menu").hover(function() {
+    $("#dropdown").animate(
+      {"margin-top": "-6px"},
+      "slow");
   });
+  //
+  $("#dropdown").mouseout(function() {
+    $("#dropdown").animate(
+      {"margin-top": "-150px"},
+      "slow");
+    });
 });
