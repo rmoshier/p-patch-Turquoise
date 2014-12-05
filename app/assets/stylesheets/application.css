@@ -57,8 +57,17 @@
 }
 
 #dropdown {
-  position: absolute;
+  margin-top:-20px;
+  /*position: absolute;*/
   /*display: none;*/
   background: grey;
   /*float: right;*/
+}
+
+#weather {
+  background: orange;
+}
+
+#my-tools {
+  background: grey;
 }

@@ -1,24 +1,28 @@
 class User < ActiveRecord::Base
+  has_many :userstools
+  has_many :tools, through: :userstools
+  has_many :posts
+
   validates :email, :name, :password, :uid, presence: true
 
-  def self.create_from_omniauth(auth_hash)
-    # Create a user
-    User.create!(
-      uid:        auth_hash["uid"].to_s,
-      photo_url: auth_hash["info"]["image"],
-      name:   auth_hash["info"]["name"],
-      email: "rachel@email.com",
-      password: "password!"
-    )
-  end
-
-  def self.find_or_create_from_omniauth(auth_hash)
-    # Find or create a user
-    if user = User.find_by(uid: auth_hash["uid"].to_s)
-      return user
-    else
-      User.create_from_omniauth(auth_hash)
+    def self.create_from_omniauth(auth_hash)
+        # Create a user
+        User.create!(
+          uid:        auth_hash["uid"].to_s,
+          photo_url: auth_hash["info"]["image"],
+          name:   auth_hash["info"]["name"],
+          email: "rachel@email.com",
+          password: "password!"
+        )
     end
-  end
 
-end
+      def self.find_or_create_from_omniauth(auth_hash)
+        # Find or create a user
+        if user = User.find_by(uid: auth_hash["uid"].to_s)
+            return user
+        else
+            User.create_from_omniauth(auth_hash)
+        end
+      end
+
+  end

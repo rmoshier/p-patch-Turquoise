@@ -8,7 +8,7 @@
   <%= f.label :content, "Content:" %>
   <%= f.text_field :content %>
 
-  <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
+  <%= f.hidden_field :user_id, :value => session[:user_id] %>
 
   <%= f.submit %>
 <% end %>

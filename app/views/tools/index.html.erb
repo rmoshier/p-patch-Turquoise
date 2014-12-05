@@ -1,13 +1,25 @@
 <h2>All Tools</h2>
 <table class = "table table-responsive">
-  <!-- <thead>
-  </thead> -->
+  <thead>
+  </thead>
   <tbody>
     <% @tools.each do |tool| %>
           <tr>
-            <td><%= tool.name %></td>
-            <td><%= tool.quantity %></td>
-            <td><%= tool.in_stock %></td>
+            <td class = ".col-md-2 text-center"><%= tool.id %></td>
+            <td class = ".col-md-2 text-center"><%= tool.name %></td>
+            <td class = ".col-md-2 text-center"><%= tool.quantity %></td>
+            <td class = ".col-md-2 text-center"><%= tool.in_stock %></td>
+            <td class = ".col-md-2 text-center">
+              <% if tool.in_stock > 0 && session[:user_id] %>
+                  <%= link_to "Rent", "/tools/rent/#{tool.id}" %>
+              <% end %>
+            </td>
+
+            <td class = ".col-md-2 text-center">
+              <% if Userstool.find_by(user_id: @user.id, tool_id: tool.id) %>
+                  <%= link_to "Return", "/tools/return/#{tool.id}" %>
+              <% end %>
+            </td>
           </tr>
     <% end %>
   </tbody>

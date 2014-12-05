@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post "/tools/new",          to: "tools#create"
   get "/tools/:id",           to: "tools#show",             as: :show_tool
   get "/tools/:id/edit",      to: "tools#edit",             as: :edit_tool
+  get "/tools/rent/:id",     to: "tools#rent_tool"
+  get "/tools/return/:id",   to: "tools#return_tool"
 
   # OAuth routes
   # /auth/:provider triggers the auth action; user is returned to:
