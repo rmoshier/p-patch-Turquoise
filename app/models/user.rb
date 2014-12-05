@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :userstools
   has_many :tools, through: :userstools
   has_many :posts
-
   validates :email, :name, :password, :uid, presence: true
 
     def self.create_from_omniauth(auth_hash)
@@ -25,4 +24,4 @@ class User < ActiveRecord::Base
         end
       end
 
-  end
+end
