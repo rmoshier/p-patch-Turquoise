@@ -153,14 +153,25 @@
 
 }
 
+
+#peapod {
+  margin-top: -27px;
+  width: 58px;
+  height: auto;
+  -ms-transform: rotate(60deg); /* IE 9 */
+  -webkit-transform: rotate(60deg); /* Chrome, Safari, Opera */
+  transform: rotate(60deg);
+}
+
+
 .vida {
-  font-family: 'Vidaloka';
+  font-family: 'Rajdhani', sans-serif;
 }
 
 .navbar h1 {
   margin: 5px;
   color: white;
-  margin-left: 30px;
+  margin-left: 0px;
   font-size: 4em;
 }
 
