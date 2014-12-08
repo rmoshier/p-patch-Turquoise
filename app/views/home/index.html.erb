@@ -13,8 +13,8 @@
           <h4 class = "white text-center">No tools rented.</h4>
         <% else %>
           <tr>
-            <%= @userstools.each do |tool| %>
-            <td><% tool["name"] %></td>
+            <% @userstools.each do |userstool| %>
+            <td><%= userstool.name %></td>
             <% end %>
           </tr>
         <% end %>
