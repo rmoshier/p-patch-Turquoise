@@ -1,4 +1,4 @@
-require 'httparty' # If using Rails with a Gemfile, this require is not needed
+# require 'httparty' # If using Rails with a Gemfile, this require is not needed
 
 class Weather
 
