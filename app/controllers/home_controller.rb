@@ -1,3 +1,5 @@
+require './lib/weather'
+
 class HomeController < ApplicationController
 
   def index
