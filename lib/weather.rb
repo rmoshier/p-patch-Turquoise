@@ -1,18 +1,16 @@
-require 'httparty' # If using Rails with a Gemfile, this require is not needed
-
 class Weather
+require 'httparty'
+  attr_accessor :city
 
-  def self.current_weather(lat, long)
-    request_weather("weather", lat, long)
+  def initialize(city)
+    @city = city
   end
 
-  def self.forecast(lat, long)
-    request_weather("forecast", lat, long)
+  def current_weather
+    HTTParty.get("http://api.openweathermap.org/data/2.5/weather?q=#{@city}").parsed_response
   end
 
-  def self.request_weather(path, lat, long)
-    response = HTTParty.get("http://api.openweathermap.org/data/2.5/#{path}?lat=#{lat}&lon=#{long}")
-    response.parsed_response
+  def forecast
+    HTTParty.get("http://api.openweathermap.org/data/2.5/forecast?q=#{@city}").parsed_response
   end
-
 end
