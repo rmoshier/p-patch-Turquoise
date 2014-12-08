@@ -14,10 +14,19 @@
 <% end %>
 
 <div id = "weather" class = "container-fluid">
-  <h2 class = "text-center white">Weather</h2>
-  <%= @current["name"] %>
-  <%= @current["weather"][0]["main"] %>
-  <%#= raise %>
+  <h2 class = "text-center white"><%= @current['name'] %> Weather</h2>
+    <div class = "col-sm-6">
+      <br>
+      Current Temperature: <%= convert(@current['main']['temp']) %> °F
+      <br>
+      High Temperature: <%= convert(@current['main']['temp_max']) %> °F
+      <br>
+      Low Temperature: <%= convert(@current['main']['temp_min'])%> °F
+      <br>
+      Forecast: <%= @current['weather'][0]['main']%>
+      <br>
+      <img src='http://openweathermap.org/img/w/<%=@current['weather'][0]['icon']%>.png'>
+    </div>
 </div>
 
 <div id = "my-tools" class = "container-fluid">
