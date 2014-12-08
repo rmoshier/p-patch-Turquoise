@@ -4,14 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    # finding user
     if session[:user_id]
       @user = User.find_by(uid: session[:user_id])
-      # raise
     end
   end
 
   helper_method(:current_user)
-
 
 end
