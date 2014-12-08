@@ -175,8 +175,21 @@
   font-size: 4em;
 }
 
+.tool-name {
+  font-size: 1.6em;
+}
+
+.return-button {
+  border-radius: 15px;
+  background: #FC440F;
+  border-style: none;
+}
+
 #weather {
-  background: orange;
+  background: #503D42;
+  /*background: #2E86AB;*/
+  background: #C4444D;
+  background: #0E34A0;
 }
 
 #my-tools {

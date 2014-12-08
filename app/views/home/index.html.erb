@@ -12,11 +12,16 @@
         <% if @userstools.length == 0 %>
           <h4 class = "white text-center">No tools rented.</h4>
         <% else %>
-          <tr>
+        <table class = "table table-responsive">
+
             <% @userstools.each do |userstool| %>
-            <td><%= userstool.name %></td>
+            <tr>
+              <td class = "col-md-6 text-center tool-name"><%= userstool.name %></td>
+              <td class = "col-md-6 text-center"><%= link_to "Return", "/tools/return/#{userstool.tool_id}", class: "btn btn-s btn-warning return-button" %></td>
+            </tr>          
             <% end %>
-          </tr>
+
+        </table>
         <% end %>
     </div>
   </div>
