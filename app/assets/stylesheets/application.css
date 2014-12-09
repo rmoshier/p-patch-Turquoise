@@ -117,13 +117,20 @@
 .green {
   color: #99D12A;
 }
-
+.weather-stuff {
+  font-size: 2em;
+}
 .tools {
   background: dimgrey;
+  border-left: 5px solid grey;
 }
 
+.welcome h2 {
+  margin-top: 40px;
+}
 .welcome {
-  background: #545454;
+  /*background: #545454;*/
+  background: dimgrey;
 }
 .fill {
   height: 100%;
@@ -197,12 +204,17 @@
   color: dimgrey;
 }
 #read-more {
-  background: #99D12A;
-  color: white;
+  color: #99D12A;
+  background: white;
 }
 
 #read-more:hover {
   background: #BEEE62;
+}
+
+.light-border {
+  border-style: 2px solid white;
+  height: 250px;
 }
 .rent-button {
   border-radius: 15px;
@@ -223,16 +235,58 @@
 
 .orange {
   color: #FC440F;
+  color: #F4743B;
+  font-style: bold;
+  margin-top: 100px;
 }
 
+.a-post {
+  background: rgba(255,255,255,0.8);
+  border: 15px solid #99DDC8;
+  border-radius: 35px;
+  margin-bottom: 20px;
+
+}
+
+#blog {
+  background: #99DDC8;
+}
 #weather {
   background: #503D42;
   /*background: #2E86AB;*/
   background: #C4444D;
   background: #0E34A0;
   background: #99DDC8;
+  padding: 0;
+  background: white;
+
 }
 
+#white-text {
+  color: white;
+}
+
+.transparent {
+  background: rgba(255, 255, 255, 0.8);
+  height: 350px;
+}
+#pic {
+  background-image: url('patch.jpg');
+  /*width: 50%;*/
+  /*height: 300px;*/
+  background-size: 100%;
+  padding: 0;
+  text-align: right;
+  height: 350px;
+
+}
+
+
+.seattle {
+  background-image: url('seattle.jpg');
+  height: 300px;
+  background-size: 150%;
+}
 #my-tools {
   background: dimgrey;
 }

@@ -28,24 +28,57 @@
 
 <% end %>
 
+<div id = "pic" class = "container-fluid">
+  <div class = "container col-sm-6"></div>
+
+  <div class = "container col-sm-6 transparent text-center">
+    <% if current_user %>
+    <h2 class = "orange">Hey, <%= current_user.name %>!</h2>
+    <h4 class = "grey">Have you subscribed to our blog yet? For news and updates, click below.</h4>
+    <% else %>
+    <h2 class = "orange">Welcome to Pea-Patch!</h2>
+    <h4 class = "grey">For new and updates, follow our blog! Click below to subscribe.</h4>
+    <% end %>
+    <%= link_to "Subscribe", "/", class: "btn btn-s btn-warning return-button", id: "white-text" %>
+  </div>
+</div>
+<div id = "blog" class = "container-fluid centered">
+  <h2 class = "text-center grey">News</h2>
+  <HR>
+    <% @posts[0..3].each do |post| %>
+    <div class = "col-md-4 light-border a-post">
+      <h3 class = "text-center grey"><%= post.title %></h3>
+      <p class = "text-center"><%= time_ago_in_words(post.created_at) %> ago</p>
+      <p class = "text-center grey"><%= truncate(post.content, length: 60) %></p>
+      <%= link_to "Read More", "/tools/show/#{post.id}", class: "btn btn-s btn-warning return-button col-md-offset-4 col-xs-offset-5", id: "read-more" %>
+    </div>
+    <% end %>
+  </div>
 <div id = "weather" class = "container-fluid">
-  <h2 class = "text-center white"><%= @current['name'] %> Weather</h2>
-    <div class = "container col-sm-6">
+  <!-- <h2 class = "text-center grey">Weather</h2>
+  <HR> -->
+
+    <div class = "container col-sm-6 seattle">
+      <h1 class = "white"><%= @current['name'] %></h1>
+      <h2 class = "white"><%= convert(@current['main']['temp']) %> °F</h2>
+      <h2 class = "white"><%= @current['weather'][0]['main']%></h2>
+    </div>
+
+    <div class = "container col-sm-6 grey text-center">
       <br>
-      Current Temperature: <%= convert(@current['main']['temp']) %> °F
+      <h4 class = "weather-stuff"><span class = "green">Current Temperature:</span> <%= convert(@current['main']['temp']) %> °F</h4>
       <br>
-      High Temperature: <%= convert(@current['main']['temp_max']) %> °F
+      <h4 class = "weather-stuff"><span class = "green">High Temperature:</span> <%= convert(@current['main']['temp_max']) %> °F</h4>
       <br>
-      Low Temperature: <%= convert(@current['main']['temp_min'])%> °F
+      <h4 class = "weather-stuff"><span class = "green">Low Temperature:</span> <%= convert(@current['main']['temp_min'])%> °F</h4>
       <br>
-      Forecast: <%= @current['weather'][0]['main']%>
+      <h4 class = "weather-stuff"><span class = "green">Forecast:</span> <%= @current['weather'][0]['main']%></h4>
       <br>
-      <img src='http://openweathermap.org/img/w/<%=@current['weather'][0]['icon']%>.png'>
     </div>
 </div>
 
 <div id = "my-tools" class = "container-fluid">
-  <h2 class = "text-center white">Tools</h2>
+  <h2 class = "text-center white">Rent Tools</h2>
   <table class = "table table-responsive">
     <thead>
       <tr>
@@ -85,17 +118,4 @@
 </div>
 
   <div id = "calendar" class = "container-fluid">
-  </div>
-
-  <div id = "blog" class = "container-fluid centered">
-    <h2 class = "text-center grey">News</h2>
-    <HR>
-    <% @posts.each do |post| %>
-      <h3 class = "text-center col-md-3 grey"><%= post.created_at.strftime("%B") %> <%= post.created_at.day %>, <%= post.created_at.year %></h3>
-      <h3 class = "col-md-9 grey"><%= post.title %></h3>
-      <h4 class = "col-md-8 col-md-offset-3 grey"><%= post.author %></h4>
-      <p class = "col-md-8 col-md-offset-3 grey"><%= post.content %></p>
-      <%= link_to "Read More", "/tools/show/#{post.id}", class: "btn btn-s btn-warning return-button col-md-offset-3", id: "read-more" %>
-
-    <% end %>
   </div>
