@@ -193,6 +193,9 @@
   color: dimgrey;
 }
 
+.return-button:hover,.rent-button:hover {
+  color: dimgrey;
+}
 #read-more {
   background: #99D12A;
   color: white;
