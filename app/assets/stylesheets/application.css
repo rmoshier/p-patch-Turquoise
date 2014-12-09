@@ -39,8 +39,8 @@
 }
 
 .show-image {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 }
 
 
@@ -82,6 +82,10 @@
   margin: 0px;
 }
 
+.tool-stuff {
+  font-size: 1.6em;
+}
+
 #menu {
   width: 100px;
   display: inline-block;
@@ -115,10 +119,12 @@
 }
 
 .tools {
-  background: grey;
-  height: 100%;
+  background: dimgrey;
 }
 
+.welcome {
+  background: #545454;
+}
 .fill {
   height: 100%;
 }
@@ -153,21 +159,80 @@
 
 }
 
+
+#peapod {
+  margin-top: -27px;
+  width: 58px;
+  height: auto;
+  -ms-transform: rotate(60deg); /* IE 9 */
+  -webkit-transform: rotate(60deg); /* Chrome, Safari, Opera */
+  transform: rotate(60deg);
+}
+
+
 .vida {
-  font-family: 'Vidaloka';
+  font-family: 'Rajdhani', sans-serif;
 }
 
 .navbar h1 {
   margin: 5px;
   color: white;
-  margin-left: 30px;
+  margin-left: 0px;
   font-size: 4em;
 }
 
+.tool-name {
+  font-size: 1.6em;
+}
+
+.return-button {
+  border-radius: 15px;
+  background: #FC440F;
+  background: #F4743B;
+  border-style: none;
+  color: dimgrey;
+}
+
+.return-button:hover,.rent-button:hover {
+  color: dimgrey;
+}
+#read-more {
+  background: #99D12A;
+  color: white;
+}
+
+#read-more:hover {
+  background: #BEEE62;
+}
+.rent-button {
+  border-radius: 15px;
+  border-style: none;
+  background: #2E86AB;
+  background: #0E34A0;
+  background: #99DDC8;
+  color: dimgrey;
+}
+
+.grey {
+  color: dimgrey;
+}
+
+.blue {
+  color: #0E34A0;
+}
+
+.orange {
+  color: #FC440F;
+}
+
 #weather {
-  background: orange;
+  background: #503D42;
+  /*background: #2E86AB;*/
+  background: #C4444D;
+  background: #0E34A0;
+  background: #99DDC8;
 }
 
 #my-tools {
-  background: grey;
+  background: dimgrey;
 }

@@ -44,14 +44,19 @@ class ToolsController < ApplicationController
 
   def rent_tool
     @tool = Tool.find(params[:id])
-    @tool.in_stock -= 1
-    @tool.save
-    @user = User.find_by(uid: session[:user_id])
-    @userstool = Userstool.new
-    @userstool.user_id = @user.id
-    @userstool.tool_id = params[:id]
-    @userstool.save
-    redirect_to tools_path
+    if @tool.in_stock > 0
+      @tool.in_stock -= 1
+      @tool.save
+      @user = User.find_by(uid: session[:user_id])
+      @userstool = Userstool.new
+      @userstool.user_id = @user.id
+      @userstool.tool_id = params[:id]
+      @userstool.name = @tool.name
+      @userstool.save
+      redirect_to root_path
+    else
+      redirect_to tools_path
+    end
   end
 
   def return_tool
@@ -62,7 +67,7 @@ class ToolsController < ApplicationController
     @userstool.destroy
     @tool.in_stock += 1
     @tool.save
-    redirect_to tools_path
+    redirect_to root_path
   end
 
 end
