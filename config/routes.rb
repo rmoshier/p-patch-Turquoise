@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resource :calendar, only: [:show], controller: :calendar
+  # root to: "calendar#show"
+
+  get 'calendar/show'
+
   # Application Home
 
   get "/",                    to: "home#index",             as: :root

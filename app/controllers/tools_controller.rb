@@ -53,7 +53,7 @@ class ToolsController < ApplicationController
       @userstool.tool_id = params[:id]
       @userstool.name = @tool.name
       @userstool.save
-      redirect_to tools_path
+      redirect_to root_path
     else
       redirect_to tools_path
     end
@@ -67,7 +67,7 @@ class ToolsController < ApplicationController
     @userstool.destroy
     @tool.in_stock += 1
     @tool.save
-    redirect_to tools_path
+    redirect_to root_path
   end
 
 end

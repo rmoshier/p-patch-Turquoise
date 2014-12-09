@@ -39,8 +39,8 @@
 }
 
 .show-image {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 }
 
 
@@ -82,6 +82,10 @@
   margin: 0px;
 }
 
+.tool-stuff {
+  font-size: 1.6em;
+}
+
 #menu {
   width: 100px;
   display: inline-block;
@@ -115,10 +119,12 @@
 }
 
 .tools {
-  background: grey;
-  height: 100%;
+  background: dimgrey;
 }
 
+.welcome {
+  background: #545454;
+}
 .fill {
   height: 100%;
 }
@@ -185,13 +191,35 @@
   border-style: none;
 }
 
+.rent-button {
+  border-radius: 15px;
+  border-style: none;
+  background: #2E86AB;
+  background: #0E34A0;
+  background: #99DDC8;
+  color: dimgrey;
+}
+
+.grey {
+  color: dimgrey;
+}
+
+.blue {
+  color: #0E34A0;
+}
+
+.orange {
+  color: #FC440F;
+}
+
 #weather {
   background: #503D42;
   /*background: #2E86AB;*/
   background: #C4444D;
   background: #0E34A0;
+  background: #99DDC8;
 }
 
 #my-tools {
-  background: grey;
+  background: dimgrey;
 }

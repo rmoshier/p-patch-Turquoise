@@ -1,13 +1,13 @@
 <% if current_user %>
   <div id = "user-div" class = "container-fluid">
-    <div class = "container col-sm-6">
+    <div class = "container col-sm-6 welcome">
       <h2 class = "text-center">Welcome back, <%= current_user.name %>!</h2>
       <h3 class = "text-center green"><%= Date.today.strftime("%B") %> <%= Date.today.day %>, <%= Date.today.year %></h3>
       <div class = "image-div">
         <%= image_tag current_user.photo_url, :class => "show-image" %>
       </div>
     </div>
-    <div class = "col-sm-6 tools fill">
+    <div class = "container col-sm-6 tools">
       <h2 class = "text-center white">My Tools</h2>
         <% if @userstools.length == 0 %>
           <h4 class = "white text-center">No tools rented.</h4>
@@ -18,7 +18,7 @@
             <tr>
               <td class = "col-md-6 text-center tool-name"><%= userstool.name %></td>
               <td class = "col-md-6 text-center"><%= link_to "Return", "/tools/return/#{userstool.tool_id}", class: "btn btn-s btn-warning return-button" %></td>
-            </tr>          
+            </tr>
             <% end %>
 
         </table>
@@ -29,11 +29,43 @@
 <% end %>
 
 <div id = "weather" class = "container-fluid">
-  <h2 class = "text-center white">Weather</h2>
+  <h2 class = "text-center grey">Weather</h2>
 </div>
 
 <div id = "my-tools" class = "container-fluid">
   <h2 class = "text-center white">Tools</h2>
+  <table class = "table table-responsive">
+    <thead>
+      <tr>
+        <td class = "text-center white">Tool</td>
+        <td class = "text-center white">Quantity</td>
+        <td class = "text-center white">Available</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tools.each do |tool| %>
+      <tr>
+        <td class = ".col-md-2 text-center white tool-stuff"><%= tool.name %></td>
+        <td class = ".col-md-2 text-center white tool-stuff"><%= tool.quantity %></td>
+        <td class = ".col-md-2 text-center white tool-stuff"><%= tool.in_stock %></td>
+        <% if current_user %>
+          <td class = ".col-md-2 text-center white">
+            <% if tool.in_stock > 0 && session[:user_id] %>
+            <%= link_to "Rent", "/tools/rent/#{tool.id}", class: "btn btn-s btn-info rent-button" %>
+            <% end %>
+          </td>
+
+          <td class = ".col-md-2 text-center">
+            <% if Userstool.find_by(user_id: @user.id, tool_id: tool.id) %>
+            <%= link_to "Return", "/tools/return/#{tool.id}", class: "btn btn-s btn-warning return-button" %>
+            <% end %>
+          </td>
+        <% end %>
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>
 
@@ -44,5 +76,14 @@
   </div>
 
   <div id = "blog" class = "container-fluid centered">
-    <h2 class = "text-center">News</h2>
+    <h2 class = "text-center grey">News</h2>
+    <HR>
+    <% @posts.each do |post| %>
+      <h3 class = "text-center col-md-3 grey"><%= post.created_at.strftime("%B") %> <%= post.created_at.day %>, <%= post.created_at.year %></h3>
+      <h3 class = "col-md-9 grey"><%= post.title %></h3>
+      <h4 class = "col-md-8 col-md-offset-3 grey"><%= post.author %></h4>
+      <p class = "col-md-8 col-md-offset-3 grey"><%= post.content %></p>
+      <%= link_to "Read More", "/tools/show/#{post.id}", class: "btn btn-s btn-warning return-button col-md-offset-3" %>
+
+    <% end %>
   </div>
