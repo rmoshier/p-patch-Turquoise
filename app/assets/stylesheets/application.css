@@ -188,9 +188,19 @@
 .return-button {
   border-radius: 15px;
   background: #FC440F;
+  background: #F4743B;
   border-style: none;
+  color: dimgrey;
 }
 
+#read-more {
+  background: #99D12A;
+  color: white;
+}
+
+#read-more:hover {
+  background: #BEEE62;
+}
 .rent-button {
   border-radius: 15px;
   border-style: none;
