@@ -231,6 +231,14 @@
 
 .blue {
   color: #0E34A0;
+  color: #99DDC8;
+}
+
+.post-box {
+  /*background: #99DDC8;*/
+  margin-bottom: 10px;
+  border: 3px solid whitesmoke;
+
 }
 
 .orange {
@@ -240,12 +248,32 @@
   margin-top: 100px;
 }
 
+.next-icons {
+  width: 50px;
+  height: 50px;
+  /*margin: 0 20px 0 20px;*/
+}
+
+#right {
+  float: right;
+}
+
+.ib {
+  display: inline-block;
+}
+/*.grey-back {
+  background: whitesmoke;
+}*/
 .a-post {
   background: rgba(255,255,255,0.8);
   border: 15px solid #99DDC8;
   border-radius: 35px;
   margin-bottom: 20px;
 
+}
+
+.next-page {
+  float: right;
 }
 
 #blog {
@@ -262,8 +290,44 @@
 
 }
 
+.postdate {
+  background: #99DDC8;
+  padding: 5px;
+}
+.title {
+  /*background: #99DDC8;*/
+  padding: 1px;
+  background: white;
+}
+
+.bold {
+  font-weight: bold;
+  color: #99DDC8;
+}
+.full-post {
+  padding: 5px;
+  background: whitesmoke;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+
+.content {
+  background: white;
+}
+.author {
+  background: whitesmoke;
+  padding: 2px;
+}
+#disqus_thread {
+  padding:15px;
+}
 #white-text {
   color: white;
+}
+
+.date-box {
+
 }
 
 .transparent {

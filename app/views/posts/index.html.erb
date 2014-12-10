@@ -1,14 +1,14 @@
-<h1>posts#index</h1>
-
-<div class='full-post'>
-
 <% @posts.each do |post| %>
-<h3 class = "text-center col-md-3 grey"><%= post.created_at.strftime("%B") %> <%= post.created_at.day %>, <%= post.created_at.year %></h3>
-<h3 class = "col-md-9 grey"><%= post.title %></h3>
-<h4 class = "col-md-8 col-md-offset-3 grey"><%= post.author %></h4>
-<p class = "col-md-8 col-md-offset-3 grey"><%= post.content %></p>
-<%= link_to "Read More", "/posts/#{post.id}", class: "btn btn-s btn-warning return-button col-md-offset-3", id: "read-more" %>
+<div class = "col-md-3 date-box col-md-offset-1">
+<h2 class = "text-center blue"><%= post.created_at.strftime("%B") %> <%= post.created_at.day %>, <%= post.created_at.year %></h2>
+</div>
+<div class = "col-md-7 post-box">
 
-<% end %>
+  <h2 class = "grey ib"><%= post.title %></h2>
+  <HR>
+  <h4 class = "grey">By <span class = "bold"><%= post.author %></span> on <%= post.created_at.strftime("%B") %> <%= post.created_at.day %>, <%= post.created_at.year %></h4>
+  <p><%= post.content %></p>
+  <%= link_to "Read More", "/posts/#{post.id}", class: "btn btn-s btn-warning return-button col-md-offset-3", id: "read-more" %>
 
 </div>
+<% end %>
