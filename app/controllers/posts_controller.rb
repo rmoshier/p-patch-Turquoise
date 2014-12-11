@@ -20,7 +20,6 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @product.update(params.require(:post).permit(:title, :author, :content))
-      redirect_to posts_path, notice: "Product was successfully updated."
     else
       render :edit
     end

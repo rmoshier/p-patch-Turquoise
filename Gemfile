@@ -28,6 +28,14 @@ gem 'spring',        group: :development
 
 gem 'httparty'
 
+gem 'bootstrap_form'
+
+# gem 'bootstrap_form-datetimepicker'
+#
+# gem 'less-rails'
+#
+# gem 'therubyracer'
+
 # Bettererrors
 group :development do
   gem "better_errors"

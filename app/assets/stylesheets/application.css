@@ -19,6 +19,94 @@
    font-weight: 100;
  }
 
+ .page-title {
+   margin-top: 90px;
+ }
+
+.cal-button {
+  color: grey;
+  background-color: #99DDC8;
+  border: none;
+}
+.month {
+  color: #99DDC8;
+  display: inline-block;
+  font-size: 1.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+#calendar {
+  background-color: whitesmoke;
+}
+
+#a-row th {
+  width: 100px;
+  background-color: dimgrey;
+  text-align: center;
+  color:#99DDC8;
+  padding: 0;
+  /*font-family: 'Rajdhani';*/
+  font-spacing: .25px;
+  font-weight: normal;
+}
+
+.post-link {
+  color: dimgrey;
+}
+
+.post-link:hover {
+  text-decoration: none;
+  color: #F4743B;
+}
+#a-row td {
+  height: 100px;
+}
+
+.event {
+  color: dimgrey;
+  /*list-style: none;*/
+  font-weight: bold;
+}
+
+.event:hover {
+  text-decoration: none;
+  color: #99DDC8;
+  padding: none;
+}
+.a-list {
+  list-style: none;
+}
+.a-list li {
+  margin-left: -35px;
+  text-align: center;
+
+}
+
+.top-thing {
+  background-color: dimgrey;
+}
+.a-day {
+  display: inline-block;
+}
+
+.pg-title {
+  margin-top: 88px;
+}
+.ev-div {
+  background: #99DDC8;
+  /*background: lightgrey;*/
+  border-radius: 50px;
+  padding: 20px;
+  height: 800px;
+  border: 15px solid white;
+  /*margin: 40px;*/
+
+}
+
+/*.row td {
+  width: 15px;
+}*/
 .navbar {
   background: #99D12A;
   height: 70px;
@@ -34,9 +122,11 @@
 }
 
 #footer {
-  background: lightblue;
+  background: #99D12A;
   height: 30px;
+  padding-top: 5px;
 }
+
 
 .show-image {
   width: 50px;
@@ -206,6 +296,7 @@
 #read-more {
   color: #99D12A;
   background: white;
+
 }
 
 #read-more:hover {
@@ -251,19 +342,17 @@
 .next-icons {
   width: 50px;
   height: 50px;
-  /*margin: 0 20px 0 20px;*/
+  margin: 0 20px 0 20px;
 }
 
 #right {
   float: right;
 }
 
-.ib {
-  display: inline-block;
+
+.grey-back {
+  background: dimgrey;
 }
-/*.grey-back {
-  background: whitesmoke;
-}*/
 .a-post {
   background: rgba(255,255,255,0.8);
   border: 15px solid #99DDC8;
@@ -314,6 +403,7 @@
 
 .content {
   background: white;
+  padding: 5px 10px 0px 10px;
 }
 .author {
   background: whitesmoke;
@@ -344,7 +434,6 @@
   height: 350px;
 
 }
-
 
 .seattle {
   background-image: url('seattle.jpg');

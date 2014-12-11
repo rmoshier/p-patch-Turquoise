@@ -4,11 +4,9 @@
 </div>
 <div class = "col-md-7 post-box">
 
-  <h2 class = "grey ib"><%= post.title %></h2>
+  <h2 class = "grey ib"><%= link_to "#{post.title}", "/posts/#{post.id}", class: "post-link" %></h2>
   <HR>
   <h4 class = "grey">By <span class = "bold"><%= post.author %></span> on <%= post.created_at.strftime("%B") %> <%= post.created_at.day %>, <%= post.created_at.year %></h4>
   <p><%= post.content %></p>
-  <%= link_to "Read More", "/posts/#{post.id}", class: "btn btn-s btn-warning return-button col-md-offset-3", id: "read-more" %>
-
 </div>
 <% end %>

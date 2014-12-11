@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'calendar/show'
+
   resource :calendar, only: [:show], controller: :calendar
   # root to: "calendar#show"
 
-  get 'calendar/show'
+  get "calendar/show",        to: "calendars#show",         as: :show_calendar
 
+  get "events/new",            to: "events#new"
+  post "/events/new",          to: "events#create"
+  get "/events/:id/edit",      to: "events#edit"
+  get "events/:id",           to: "events#show",           as: :show_event
   # Application Home
 
   get "/",                    to: "home#index",             as: :root

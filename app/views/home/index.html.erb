@@ -46,12 +46,17 @@
   <h2 class = "text-center grey">News</h2>
   <HR>
     <% @posts[0..3].each do |post| %>
-    <div class = "col-md-4 light-border a-post">
+    <div class = "col-sm-4 light-border a-post">
       <h3 class = "text-center grey"><%= post.title %></h3>
       <p class = "text-center"><%= time_ago_in_words(post.created_at) %> ago</p>
       <p class = "text-center grey"><%= truncate(post.content, length: 60) %></p>
-      <%= link_to "Read More", "/tools/show/#{post.id}", class: "btn btn-s btn-warning return-button col-md-offset-4 col-xs-offset-5", id: "read-more" %>
+      <div class = "span7 text-center">
+          <%= link_to "Read More", "/posts/#{post.id}", class: "btn btn-s btn-warning return-button", id: "read-more" %>
+      </div>
     </div>
+    <% end %>
+    <% if current_user %>
+      <div class = "span7 text-center"><%= link_to "New Post", "/posts/new", class: "btn btn-s btn-warning return-button", id: "read-more" %></div>
     <% end %>
   </div>
 <div id = "weather" class = "container-fluid">
@@ -115,20 +120,40 @@
 </div>
 
 <div id = "calendar" class = "container-fluid">
-</div>
-
-  <div id = "calendar" class = "container-fluid">
+  <div class = "cal-full">
+    <h2 class = "text-center grey">Upcoming Events</h2>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="well controls top-thing">
+          <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default cal-button" do %>
+          <i class="glyphicon glyphicon-backward"></i>
+          <% end %>
+          <p class = "month blue"><%= "#{@date.strftime("%B")} #{@date.year}" %></p>
+          <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default cal-button" do %>
+          <i class="glyphicon glyphicon-forward"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row" id = "a-row">
+      <div class="col-md-12 cal">
+        <%= calendar @date do |date| %>
+        <p class = "a-day"><%= date.day %></p>
+        <% if @events_by_date[date] %>
+        <ul class = "a-list">
+          <% @events_by_date[date].each do |event| %>
+          <li class = "event text-center"><%= link_to event.title, "/events/#{event.id}", class: "event" %></li>
+          <% end %>
+        </ul>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div id = "blog" class = "container-fluid centered">
-    <h2 class = "text-center grey">News</h2>
-    <HR>
-    <% @posts.each do |post| %>
-      <h3 class = "text-center col-md-3 grey"><%= post.created_at.strftime("%B") %> <%= post.created_at.day %>, <%= post.created_at.year %></h3>
-      <h3 class = "col-md-9 grey"><%= post.title %></h3>
-      <h4 class = "col-md-8 col-md-offset-3 grey"><%= post.author %></h4>
-      <p class = "col-md-8 col-md-offset-3 grey"><%= post.content %></p>
-      <%= link_to "Read More", "/posts/#{post.id}", class: "btn btn-s btn-warning return-button col-md-offset-3", id: "read-more" %>
-
-    <% end %>
+  <% if current_user %>
+    <div class = "span7 text-center"><%= link_to "New Event", "/events/new", class: "btn btn-s btn-warning return-button", id: "read-more" %></div>
+  <% end %>
+</div>
+  <div class = "container-fluid" id = "footer">
+    <p class = "white text-center">designed and created by Lily Pace and Rachel Moshier Adler</p>
   </div>

@@ -1,0 +1,12 @@
+<h2 class = "text-center grey pg-title"><%= @event.title %></h2>
+<hr>
+<div class = "col-sm-12">
+  <div class = "col-sm-6 light-border ev-div" id = "event-details">
+    <h3 class = "ib text-center grey">Event Details</h3>
+    <h4 class = "ib text-center grey"><span class= "white">Location:</span> <%= @event.location %></h4>
+    <h4 class = "ib text-center grey"><span class= "white">Date:</span> <%= @event.date.strftime("%B") %> <%= @event.date.day %>, <%= @event.date.year %></h4>
+  </div>
+  <div class = "col-sm-6 light-border ev-div" id = "description">
+    <p><%= @event.description %></p>
+  </div>
+</div>

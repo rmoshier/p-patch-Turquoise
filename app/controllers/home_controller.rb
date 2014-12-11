@@ -10,6 +10,8 @@ class HomeController < ApplicationController
     @tools = Tool.all
     @user = User.find_by(uid: session[:user_id])
     @posts = Post.order(created_at: :desc)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @events_by_date = Event.all.group_by(&:date)
   end
 
   def weather

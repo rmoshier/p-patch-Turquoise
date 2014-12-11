@@ -1,20 +1,38 @@
-<div class="row">
-  <div class="col-md-12 text-center">
-    <div class="well controls">
-      <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
-      <i class="glyphicon glyphicon-backward"></i>
-      <% end %>
-      <%= "#{@date.strftime("%B")} #{@date.year}" %>
-      <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
-      <i class="glyphicon glyphicon-forward"></i>
+<div class = "cal-full">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="well controls">
+        <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
+        <i class="glyphicon glyphicon-backward"></i>
+        <% end %>
+        <%= "#{@date.strftime("%B")} #{@date.year}" %>
+        <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
+        <i class="glyphicon glyphicon-forward"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row" id = "a-row">
+    <div class="col-md-12 cal">
+      <%= calendar @date do |date| %>
+        <p class = "a-day"><%= date.day %></p>
+        <% if @events_by_date[date] %>
+          <ul class = "a-list">
+            <% @events_by_date[date].each do |event| %>
+              <li class = "event text-center"><%= link_to event.title, root_path, class: "event" %></li>
+            <% end %>
+          </ul>
+        <% end %>
       <% end %>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-12">
-    <%= calendar @date do |date| %>
-    <%= date.day %>
-    <% end %>
-  </div>
-</div>
+<!-- <div id = "calendar">
+<table class = "calendar table table-bordered">
+  <tbody>
+    <tr>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div> -->
