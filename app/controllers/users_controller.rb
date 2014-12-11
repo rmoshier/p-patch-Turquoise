@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     @user = User.find_by(uid: session[:user_id]).update({email: params[:email]})
     # bring up session and edit the entry to add email to the DB
     # if @user.save
+    @pineapple = User.find_by(uid: session[:user_id])
+    PostMailer.email_name(@pineapple.uid).deliver
     redirect_to root_path
     # end
   end
