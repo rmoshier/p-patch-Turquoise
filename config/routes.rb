@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # Application Home
 
   get "/",                    to: "home#index",             as: :root
+  post "/",                   to: "users#index"
 
   # Post routes
 
