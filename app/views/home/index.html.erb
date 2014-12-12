@@ -41,7 +41,7 @@
     <% end %>
     <%= form_tag "/" do %>
       <%= text_field_tag :email, params[:email] %>
-      <%= submit_tag "Submit" %>
+      <%= submit_tag "Submit", class: "btn btn-s btn-warning return-button" %>
     <% end %>
     <br>
     <%#= link_to "Subscribe", "/", class: "btn btn-s btn-warning return-button", id: "white-text" %>
