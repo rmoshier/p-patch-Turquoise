@@ -39,7 +39,12 @@
     <h2 class = "orange">Welcome to Pea-Patch!</h2>
     <h4 class = "grey">For new and updates, follow our blog! Click below to subscribe.</h4>
     <% end %>
-    <%= link_to "Subscribe", "/", class: "btn btn-s btn-warning return-button", id: "white-text" %>
+    <%= form_tag "/" do %>
+      <%= text_field_tag :email, params[:email] %>
+      <%= submit_tag "Submit" %>
+    <% end %>
+    <br>
+    <%#= link_to "Subscribe", "/", class: "btn btn-s btn-warning return-button", id: "white-text" %>
   </div>
 </div>
 <!-- <a name="weather"></a> -->
