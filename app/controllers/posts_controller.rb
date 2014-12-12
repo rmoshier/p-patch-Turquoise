@@ -36,6 +36,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @highest_id = Post.order('id DESC').first.id
   end
 
   def edit
