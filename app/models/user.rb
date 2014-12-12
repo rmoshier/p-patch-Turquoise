@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
         photo_url:  image,
         # photo_url needs to be subbing _normal.jpg to _bigger.jpg
         name:   auth_hash["info"]["name"],
-        email: "rachel@email.com",
+        # email: "rachel@email.com",
         password: "password!"
       )
     end
