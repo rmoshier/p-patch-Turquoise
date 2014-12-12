@@ -51,7 +51,7 @@
 <div id = "blog" class = "container-fluid centered">
   <h2 class = "text-center grey">News</h2>
   <HR>
-    <% @posts[0..3].each do |post| %>
+    <% @posts[0..2].each do |post| %>
     <div class = "col-sm-4 light-border a-post">
       <h3 class = "text-center grey"><%= post.title %></h3>
       <p class = "text-center"><%= time_ago_in_words(post.created_at) %> ago</p>

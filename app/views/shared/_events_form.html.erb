@@ -1,11 +1,11 @@
-<!-- <div class = "span7"> -->
+<div class = "span7">
   <div class = "container">
-    <%= bootstrap_form_for @event, url: {action: "create"} do |f| %>
+    <%= bootstrap_form_for @event do |f| %>
     <%= f.text_field :title, class: "form-control", placeholder: "Event Name" %>
+    <%= f.text_field :location, class: "form-control", placeholder: "Event Location" %>
     <%= f.date_field :date, class: "form-control" %>
     <%= f.text_field :description, class: "form-control", placeholder: "Description" %>
-    <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
     <%= f.submit %>
     <% end %>
   </div>
-<!-- </div> -->
+</div>

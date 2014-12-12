@@ -9,4 +9,9 @@
   <div class = "col-sm-6 light-border ev-div" id = "description">
     <p><%= @event.description %></p>
   </div>
+
+  <% if current_user %>
+  <div class = "span7 text-center"><%= link_to "Edit Event", "/events/#{@event.id}/edit", class: "btn btn-s btn-warning return-button form-button blue" %></div>
+  <% end %>
+
 </div>

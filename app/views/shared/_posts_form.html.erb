@@ -1,10 +1,9 @@
 <div class = "span7">
   <div class = "container">
-    <%= bootstrap_form_for @post, url: {action: "create"} do |f| %>
+    <%= bootstrap_form_for @post do |f| %>
     <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
-    <%= f.date_field :author, class: "form-control", placeholder: "Author" %>
+    <%= f.text_field :author, class: "form-control", placeholder: "Author" %>
     <%= f.text_field :content, class: "form-control", placeholder: "Content" %>
-    <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
     <%= f.submit %>
     <% end %>
   </div>

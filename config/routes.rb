@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'calendar/show'
-
+  resources :events
   resource :calendar, only: [:show], controller: :calendar
   # root to: "calendar#show"
 
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "events/new",            to: "events#new"
   post "/events/new",          to: "events#create"
   get "/events/:id/edit",      to: "events#edit"
+  post "/events/:id/edit",      to: "events#update"
   get "events/:id",           to: "events#show",           as: :show_event
   # Application Home
 
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   post "/posts/new",          to: "posts#create"
   get "/posts/:id",           to: "posts#show",             as: :show_post
   get "/posts/:id/edit",      to: "posts#edit",             as: :edit_post
-
+  post "/posts/:id/edit",      to: "posts#update"
   # Tool routes
 
   get "/tools",               to: "tools#index",            as: :tools

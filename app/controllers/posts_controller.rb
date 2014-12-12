@@ -13,8 +13,17 @@ class PostsController < ApplicationController
     # end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
   def create
     @post = Post.new(params.require(:post).permit(:title, :author, :content))
+    if @post.save
+      redirect_to root_path
+    else
+      raise params.inspect
+      render :new
+    end
   end
 
   def update
