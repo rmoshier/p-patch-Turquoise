@@ -1,13 +1,13 @@
 <% if current_user %>
   <div id = "user-div" class = "container-fluid">
-    <div class = "container col-sm-6 welcome">
+    <div class = "container col-md-6 welcome">
       <h2 class = "text-center">Welcome back, <%= current_user.name %>!</h2>
       <h3 class = "text-center green"><%= Date.today.strftime("%B") %> <%= Date.today.day %>, <%= Date.today.year %></h3>
       <div class = "image-div">
 
       </div>
     </div>
-    <div class = "container col-sm-6 tools">
+    <div class = "container col-md-6 tools">
       <h2 class = "text-center white">My Tools</h2>
         <% if @userstools.length == 0 %>
           <h4 class = "white text-center">No tools rented.</h4>
@@ -29,9 +29,9 @@
 <% end %>
 
 <div id = "pic" class = "container-fluid">
-  <div class = "container col-sm-6"></div>
+  <div class = "container col-md-6"></div>
 
-  <div class = "container col-sm-6 transparent text-center">
+  <div class = "container col-md-6 transparent text-center">
     <% if current_user %>
     <h2 class = "orange">Hey, <%= current_user.name %>!</h2>
     <h4 class = "grey">Have you subscribed to our blog yet? For news and updates, click below.</h4>
@@ -52,7 +52,7 @@
   <h2 class = "text-center grey">News</h2>
   <HR>
     <% @posts[0..2].each do |post| %>
-    <div class = "col-sm-4 light-border a-post">
+    <div class = "col-md-4 light-border a-post">
       <h3 class = "text-center grey"><%= post.title %></h3>
       <p class = "text-center"><%= time_ago_in_words(post.created_at) %> ago</p>
       <p class = "text-center grey"><%= truncate(post.content, length: 60) %></p>
@@ -69,13 +69,13 @@
   <!-- <h2 class = "text-center grey">Weather</h2>
   <HR> -->
 
-    <div class = "container col-sm-6 seattle">
+    <div class = "container col-md-6 seattle">
       <h1 class = "white"><%= @current['name'] %></h1>
       <h2 class = "white"><%= convert(@current['main']['temp']) %> °F</h2>
       <h2 class = "white"><%= @current['weather'][0]['main']%></h2>
     </div>
 
-    <div class = "container col-sm-6 grey text-center">
+    <div class = "container col-md-6 grey text-center">
       <br>
       <h4 class = "weather-stuff"><span class = "green">Current Temperature:</span> <%= convert(@current['main']['temp']) %> °F</h4>
       <br>
